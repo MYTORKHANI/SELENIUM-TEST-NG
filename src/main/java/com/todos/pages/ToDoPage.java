@@ -18,7 +18,9 @@ public static WebElement inputText;
 public static WebElement todosText;
 @FindBy(how = How.XPATH,using="//input[@class=\"toggle\"]")
 public static WebElement checkBox;
-	
+@FindBy(how = How.XPATH,using="//button[@class='clear-completed']")
+public static WebElement removeBtn;
+
 	public ToDoPage() throws IOException {
 	PageFactory.initElements(driver, this);
 	}
@@ -41,5 +43,9 @@ public boolean ischeckboxselected(WebElement element) {
 	boolean ischeckboxselected = element.isSelected();
 	return ischeckboxselected;
 	
+}
+public String getPageSource() {
+	String element = driver.getPageSource();
+	return element;
 }
 }
